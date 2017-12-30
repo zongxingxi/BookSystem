@@ -1,0 +1,18 @@
+.login {
+    margin:auto;
+    margin-top: 100px;
+    max-width: 300px;
+    padding: 14px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+
+.registered {
+    text-align: right;
+    padding-right: 1em;
+    font-size: 0.8em;
+}
+
+.registered a {
+    color: #495057;
+}

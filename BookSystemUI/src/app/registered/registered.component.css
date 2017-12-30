@@ -1,0 +1,8 @@
+.registered {
+    margin:auto;
+    margin-top: 100px;
+    max-width: 300px;
+    padding: 14px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}

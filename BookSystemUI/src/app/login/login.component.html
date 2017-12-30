@@ -1,0 +1,34 @@
+<div class="container">
+
+  <form class="login form-group" #loginForm="ngForm" (ngSubmit)="loginForm.form.invalid?null :onSubmit()">
+
+    <h1>欢迎订书</h1>
+
+    <div *ngIf="studyIdAlis.invalid && studyIdAlis.dirty && studyIdAlis.value" class="alert-warning form-group">
+      请输入正确的学号
+    </div>
+    <div class="form-group">
+      <label for="inputStudentID" class="sr-only">studyId</label>
+      <input type="text" id="studyID" class="form-control" placeholder="学号" required autofocus autocomplete pattern="^\d{8}$" [(ngModel)]="studyId"
+        name="studyId" #studyIdAlis="ngModel">
+    </div>
+
+    <div *ngIf="passwordAlis.invalid && passwordAlis.dirty && passwordAlis.value" class="alert-warning form-group">
+      请输入长度为6-20的密码
+    </div>
+    <div class="form-group">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="password" class="form-control" placeholder="密码" required pattern="^.{6,20}$" [(ngModel)]="password"
+        name="password" #passwordAlis="ngModel">
+    </div>
+
+    <div [hidden]="userExits" class="alert-warning form-group">{{warningInfo}}</div>
+
+    <div class="form-group registered navbar-pills">
+      <a routerLink="/registered">注册</a> </div>
+    <button class="btn btn-default" style="float: right" type="submit">登陆</button>
+    <!-- <button class="btn btn-default" style="float: right" type="submit" [disabled]="loginForm.form.invalid">登陆</button> -->
+    <div style="clear:both"></div>
+
+  </form>
+</div>

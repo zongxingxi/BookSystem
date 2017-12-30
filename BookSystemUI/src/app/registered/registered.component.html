@@ -1,0 +1,37 @@
+<div class="container">
+  
+    <form class="registered form-group" #registeredForm="ngForm" (ngSubmit)="registeredForm.form.invalid?null :onSubmit()">
+  
+      <h2>注册</h2>
+  
+      <div *ngIf="registeredStudentIDAlias.invalid && registeredStudentIDAlias.dirty && registeredStudentIDAlias.value" class="alert-warning form-group">
+        请输入正确的学号
+      </div>
+      <div class="form-group">
+        <label for="StudentIDregistered" class="sr-only">studyId</label>
+        <input type="text" id="registeredStudentID" class="form-control" placeholder="学号" required autofocus autocomplete pattern="^\d{8}$" [(ngModel)]="registeredStudentID"
+          name="registeredStudentID" #registeredStudentIDAlias="ngModel">
+      </div>
+  
+      <div *ngIf="registeredPasswordAlias.invalid && registeredPasswordAlias.dirty && registeredPasswordAlias.value" class="alert-warning form-group">
+        请输入长度为6-20的密码
+      </div>
+      <div class="form-group">
+        <label for="registeredPassword" class="sr-only">Password</label>
+        <input type="password" id="registeredPassword" class="form-control" placeholder="密码" required pattern="^.{6,20}$" [(ngModel)]="registeredPassword"
+          name="registeredPassword" #registeredPasswordAlias="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="registeredPasswordSec" class="sr-only">Password</label>
+        <input type="password" id="registeredPasswordSec" class="form-control" placeholder="再次输入密码"  required [(ngModel)]="registeredPasswordSec"
+          name="registeredPasswordSec" #registeredPasswordSecAlias="ngModel">
+      </div>
+  
+      <div [hidden]="!warningInfo" class="alert-warning form-group">{{warningInfo}}</div>
+  
+      <button class="btn btn-default" style="float: right" type="submit">注册</button>
+      <div style="clear:both"></div>
+  
+    </form>
+  </div>
